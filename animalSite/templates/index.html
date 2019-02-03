@@ -1,0 +1,21 @@
+{% if list_animal_name %}
+<h1>List of Animals </h1>
+    <ul>
+    {% for name in list_animal_name %}
+        <li><a href="{% url 'animal:detail' name.id %}">{{ name.animal_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Data are available.</p>
+{% endif %}
+<form action="{% url 'animal:created' %}" method="get">
+<input type="submit" value="Add_more">
+</form>
+
+<form action="{% url 'animal:test_delete' %}" method="get">
+<input type="submit" value="Delete">
+</form>
+
+<form action="{% url 'animal:table' %}" method="get">
+<input type="submit" value="Table">
+</form>

@@ -1,0 +1,14 @@
+<form action="{% url 'animal:testing_a' %}" method="post">
+{% csrf_token %}
+<u><h1>Please fill data below.</h1></u>
+<h2>Name : <input type="TextInput" name="input_name" value=""> </h2>
+    <li>food    :  <input type="checkbox" name="check" value="1"></li>
+    <li>habitat :  <input type="checkbox" name="check" value="2"></li>
+    <li>legs    :  <input type="checkbox" name="check"></li>
+    <input type="color" name="col" value='col'>
+    <input type="file" name="fil" >
+    <input type="image" name="ima" value='ima'>
+<h1></h1>
+<input type="submit" value="Submit">
+<h1></h1>
+</form>

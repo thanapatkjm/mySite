@@ -1,0 +1,17 @@
+<form action="{% url 'animal:deleting' %}" method="post">
+{% csrf_token %}
+{% if list_animal_name %}
+<h1>List of Animals </h1>
+    <ul>
+    {% for name in list_animal_name %}
+        <input type="radio" name='radio' value={{ name.id }} > <a href="{% url 'animal:detail' name.id %}">{{ name.animal_name }}</a>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Data are available.</p>
+{% endif %}
+<input type="submit" value="submit">
+</form>
+<form action="{% url 'animal:index' %}" method="get">
+<input type="submit" value="cancel">
+</form>

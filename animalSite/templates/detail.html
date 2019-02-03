@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h1>{{ latest_animal_name.animal_name }}</h1>
+    <li>food : {{ latest_animal_name.description.food }}
+    <li>habitat : {{ latest_animal_name.description.habitat }}
+    <li>legs : {{ latest_animal_name.description.legs }}
+<h1></h1>
+
+<form action="{% url 'animal:edit' latest_animal_name.id%}" method="get">
+<input type="submit" value="EDIT">
+</form>
+<h1></h1>
+
+<form action="{% url 'animal:remov' latest_animal_name.id%}" method="post">
+{% csrf_token %}
+<input type="submit" value="DELETE">
+</form>
+<h1></h1>
+
+<form action="{% url 'animal:index' %}" method="get">
+<input type="submit" value="BACK">
+</form>

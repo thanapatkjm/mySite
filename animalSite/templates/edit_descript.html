@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'animal:editing' animal_num.id %}" method="post">
+{% csrf_token %}
+<u><h1>Select what do you want to edit.</h1></u>
+<h2>Name : {{ animal_num.animal_name }}</h2>
+    <input type="checkbox" name="check_food"><li>food    :  <input type="TextInput"
+        name="input_food" value="{{ animal_num.description.food }}"></li>
+    <input type="checkbox" name="check_habitat"><li>habitat :  <input type="TextInput"
+        name="input_habitat" value="{{ animal_num.description.habitat }}"></li>
+    <input type="checkbox" name="check_leg"><li>legs    :  <input type="TextInput"
+        name="input_legs" value="{{ animal_num.description.legs }}"></li>
+<h1></h1>
+<input type="submit" value="sub">
+<h1></h1>
+</form>
+
+<form action="{% url 'animal:detail' animal_num.id %}" method="get">
+<input type="submit" value="Cancel">
+</form>
